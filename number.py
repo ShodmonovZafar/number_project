@@ -114,7 +114,24 @@ class Number:
 
         returns: bool
         """
-        pass
+        if self.value < 0:
+            return
+        uz = self.get_length()
+        if uz % 2 == 0:
+            aylanalar_soni = int(uz / 2)
+            ch = aylanalar_soni - 1
+            ong = aylanalar_soni
+        else:
+            aylanalar_soni = uz // 2
+            ch = aylanalar_soni - 1
+            ong = aylanalar_soni + 1
+        s = str(self.value)
+        for i in range(aylanalar_soni):
+            if s[ch] != s[ong]:
+                return False
+            ch -= 1
+            ong += 1
+        return True
 
     def get_digits(self):
         """
@@ -174,9 +191,9 @@ class Number:
     
 
 # Create a new instance of Number
-for i in range(-20, 100):
+for i in range(-20, 1000):
     number = Number(i)
-    a = number.get_reverse()
+    a = number.is_palindrome()
     print("Number: ", i, "Natija: ", a)
 
 
