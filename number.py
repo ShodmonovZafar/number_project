@@ -139,7 +139,15 @@ class Number:
 
         returns: list
         """
-        pass
+        if self.value < 0:
+            return
+        list_one = []
+        num = self.value  # 1423
+        while num > 0:
+            list_one.append(num % 10)
+            num //= 10
+        list_one.reverse()
+        return list_one
 
     def get_max(self):
         """
@@ -147,7 +155,12 @@ class Number:
 
         returns: int
         """
-        pass
+        if self.value < 0:
+            return
+        x = self.get_digits()
+        if len(x) < 2:
+            return self.value
+        return max(x)
 
     def get_min(self):
         """
@@ -155,7 +168,12 @@ class Number:
 
         returns: int
         """
-        pass
+        if self.value < 0:
+            return
+        x = self.get_digits()
+        if len(x) < 2:
+            return self.value
+        return min(x)
 
     def get_average(self):
         """
@@ -163,7 +181,10 @@ class Number:
 
         returns: float
         """
-        pass
+        if self.value < 0:
+            return
+        return self.get_sum()/self.get_length()
+        
 
     def get_median(self):
         """
@@ -193,7 +214,7 @@ class Number:
 # Create a new instance of Number
 for i in range(-20, 1000):
     number = Number(i)
-    a = number.is_palindrome()
+    a = number.get_average()
     print("Number: ", i, "Natija: ", a)
 
 
