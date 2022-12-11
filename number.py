@@ -240,10 +240,6 @@ class Number:
     
 
 # Create a new instance of Number
-# for i in range(-20, 1000):
-#     number = Number(i)
-#     a = number.get_average()
-#     print("Number: ", i, "Natija: ", a)
 number = Number(1996)
 a = number.get_frequency()
 print(a)
