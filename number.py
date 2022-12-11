@@ -191,7 +191,12 @@ class Number:
 
         returns: float
         """
-        pass
+        if self.value < 0:
+            return 
+        my_list = self.get_digits()
+        my_list.sort()
+        i = len(my_list) // 2
+        return my_list[i]
 
     def get_range(self):
         """
@@ -240,8 +245,8 @@ class Number:
     
 
 # Create a new instance of Number
-number = Number(1996)
-a = number.get_frequency()
+number = Number(196)
+a = number.get_median()
 print(a)
 
 
