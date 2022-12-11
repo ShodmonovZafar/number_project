@@ -185,7 +185,6 @@ class Number:
             return
         return self.get_sum()/self.get_length()
         
-
     def get_median(self):
         """
         Returns the median of all the digits in the number.
@@ -200,7 +199,24 @@ class Number:
 
         returns: list
         """
-        pass
+        s = str(self.value)
+        if self.value < 0:
+            return []
+        rel = []
+        for i, e in enumerate(str(s)):
+            if i == len(s) - 1:
+                break
+            n = int(e)
+            m = int(s[i + 1])
+            if n < m:
+                a = list(range(n + 1, m))
+                rel += a
+            elif n > m:
+                a = list(range(n - 1, m, -1))
+                rel += a
+            else:
+                pass
+        return rel
 
     def get_frequency(self):
         """
@@ -208,13 +224,28 @@ class Number:
 
         returns: dict
         """
-        pass
+        if self.value < 0:
+            return 
+        my_list = self.get_digits()
+        freq = {} 
+        for item in my_list: 
+            if (item in freq): 
+                freq[item] += 1
+            else: 
+                freq[item] = 1
+        # for key, value in freq.items(): 
+        #     print ("% d : % d"%(key, value)) 
+        #     pass
+        return freq
     
 
 # Create a new instance of Number
-for i in range(-20, 1000):
-    number = Number(i)
-    a = number.get_average()
-    print("Number: ", i, "Natija: ", a)
+# for i in range(-20, 1000):
+#     number = Number(i)
+#     a = number.get_average()
+#     print("Number: ", i, "Natija: ", a)
+number = Number(1996)
+a = number.get_frequency()
+print(a)
 
 
